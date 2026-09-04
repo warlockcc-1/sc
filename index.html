@@ -1,0 +1,1359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-CN"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;万度搜索&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="style.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>全局重置</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f1f3f6;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a1a2e;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>顶部导航栏</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.top-nav {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 4%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.top-nav a {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.top-nav a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.top-nav .sep {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.top-nav .right {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.top-nav .right .msg {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>主导航栏</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main-nav {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 4%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 48px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.logo-area {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.logo-area img {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.logo-area .logo-text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: -0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.logo-area .logo-text .dot {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main-nav .nav-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 48px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #444;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 3px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main-nav .nav-item:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main-nav .nav-item.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main-nav .nav-right {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #888;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>搜索区</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 4% 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .search-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-width: 200px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 620px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .search-box input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-width: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .search-box button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 0 3px 3px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .search-box button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #0f1a4a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .hot-tags {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #888;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .hot-tags .label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #999;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .hot-tags .tag {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 1px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0f4ff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.search-section .hot-tags .tag:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>新闻分类导航</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-tabs {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 4%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 38px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-overflow-scrolling: touch;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-tabs::-webkit-scrollbar {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-tabs .tab {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 38px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-tabs .tab:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-tabs .tab.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>主内容区 - 三栏等高</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.main-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1280px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 14px auto 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 16px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: 1fr 1fr 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: stretch;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 每一列内部是flex列，撑满高度 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-left,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-mid,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-right {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ---------- 通用卡片 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #eaedf2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: box-shadow 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 12px rgba(0,0,0,0.06);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card .title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card .title:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card .meta {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #999;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card .meta .tag {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0f2f5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card .meta .tag.hot {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fde8e8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #c0392b;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 带图片的卡片 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card.with-img {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: flex-start;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card.with-img .thumb {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 110px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 66px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e8ecf2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card.with-img .info {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-width: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.news-card.with-img .info .title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ---------- 列标题 ---------- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-left .section-title,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-mid .section-title,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-right .section-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>左栏 - 大图轮播</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 180px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a1f2e;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-wrap .slides {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 300%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: carousel-slide 15s ease-in-out infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-wrap .slides .slide {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 33.333%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: cover;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-position: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-wrap .slides .slide .overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 30px 18px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(transparent, rgba(0,0,0,0.7));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-wrap .slides .slide .overlay .title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.4;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-wrap .slides .slide .overlay .sub {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes carousel-slide {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 25% { transform: translateX(0); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>33%, 58% { transform: translateX(-33.333%); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>66%, 91% { transform: translateX(-66.666%); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: translateX(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 轮播指示点 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-dots {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-dots .dot {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255,255,255,0.4);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-dots .dot.active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 动画对应指示点 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes dot1 { 0%, 25% { width:20px; background:#fff; } 26%, 100% { width:8px; background:rgba(255,255,255,0.4); } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes dot2 { 0%, 25% { width:8px; background:rgba(255,255,255,0.4); } 26%, 58% { width:20px; background:#fff; } 59%, 100% { width:8px; background:rgba(255,255,255,0.4); } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes dot3 { 0%, 58% { width:8px; background:rgba(255,255,255,0.4); } 59%, 91% { width:20px; background:#fff; } 92%, 100% { width:8px; background:rgba(255,255,255,0.4); } }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-dots .dot:nth-child(1) { animation: dot1 15s infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-dots .dot:nth-child(2) { animation: dot2 15s infinite; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.carousel-dots .dot:nth-child(3) { animation: dot3 15s infinite; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>右栏</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-right .side-block {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #eaedf2;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-right .side-block .block-title {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 2px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 右栏最后一个区块撑满剩余空间 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.col-right .side-block:last-child {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 热榜 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 5px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #f4f4f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item:last-child {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .num {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #bbb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-width: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .num.top1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .num.top2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #e67e22;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .num.top3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #2980b9;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .text:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: underline;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.rank-list .rank-item .badge {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0f2f5;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 便民服务 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.service-grid {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(4, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.service-grid .svc {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 6px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.service-grid .svc:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f0f4ff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.service-grid .svc .icon {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>滚动快讯</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1280px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a1f2e;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box .label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-shrink: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #e74c3c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box .track {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box .track .list {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>white-space: nowrap;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: scroll 30s linear infinite;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-50%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box .track .list .item {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #c8d0e0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-right: 1px solid #3a4a6a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: color 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box .track .list .item:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.ticker-box .track .list .item .time {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #7f8fa4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-right: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes scroll {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0% { transform: translateY(-50%) translateX(0); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>100% { transform: translateY(-50%) translateX(-50%); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>底部</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.footer-bottom {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1280px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0 16px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.footer-links {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>grid-template-columns: repeat(4, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gap: 3px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 12px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-top: 1px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #e4e7ed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.footer-links .link {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #888;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px dotted #f4f4f4;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.footer-links .link:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.footer-links .link .date {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #bbb;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.copyright {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #bbb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.copyright a {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #bbb;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 6px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.copyright a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>弹窗</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-overlay {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>inset: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(0,0,0,0.45);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>backdrop-filter: blur(2px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 999;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-box {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 32px 36px 28px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 420px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 60px rgba(0,0,0,0.25);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: fadeUp 0.4s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeUp {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(16px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-box .icon {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-box h2 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-box .sub {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #999;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-box .letter {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.9;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #f8fafc;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-left: 3px solid #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: left;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.modal-box .letter strong {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-start {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #1a2a6c;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px 36px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 500;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn-start:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: #0f1a4a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">               </span>响应式</p>
+<p class="p1"><span class="Apple-converted-space">               </span>============================================================ */</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 平板：两栏 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 1024px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-content {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.footer-links {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(2, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.top-nav {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 3%;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 32px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-nav {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 3%;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 44px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.search-section {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 10px 3%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-tabs {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 3%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 150px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 手机：单栏 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 640px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.top-nav .right .msg {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.top-nav .sep {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.top-nav a:not(:first-child) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.top-nav .right a {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>display: inline;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-nav {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: auto;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 6px 3%;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-nav .nav-item {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>border-bottom-width: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.logo-area {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-right: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.logo-area .logo-text {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-nav .nav-right {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.search-section {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>align-items: stretch;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 10px 3%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.search-section .search-box {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>max-width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.search-section .search-box input {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.search-section .search-box button {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 16px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.search-section .hot-tags {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-tabs {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 3%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-tabs .tab {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-content {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 0;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 10px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.col-left .section-title,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.col-mid .section-title,</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.col-right .section-title {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-top: 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-card {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-card .title {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-card.with-img {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-card.with-img .thumb {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>width: 90px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 56px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-card.with-img .info .title {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 140px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap .slides .slide .overlay .title {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap .slides .slide .overlay .sub {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.col-right .side-block {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 10px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-bottom: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.footer-links {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gap: 2px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.footer-links .link {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.copyright {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.copyright a {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin: 0 4px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-box {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 24px 20px 22px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin: 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-box .letter {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 12px 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.modal-box h2 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 17px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.ticker-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.ticker-box {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.ticker-box .label {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>margin-right: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.ticker-box .track .list .item {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 14px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.service-grid {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: repeat(4, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.service-grid .svc {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 4px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.service-grid .svc .icon {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 400px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.main-nav .nav-item {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 0 6px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.logo-area .logo-text {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.news-card.with-img .thumb {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>width: 70px;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 44px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.footer-links {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>grid-template-columns: 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>height: 110px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap .slides .slide .overlay {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 20px 12px 10px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.carousel-wrap .slides .slide .overlay .title {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>1. 顶部导航栏</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="top-nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#"&gt;设为首页&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="sep"&gt;|&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#"&gt;收藏万度&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="sep"&gt;|&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#"&gt;帮助&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;登录&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;注册&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="msg"&gt;消息(3)&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>2. 主导航栏 + Logo</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="main-nav"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="logo-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="images/logo.png" alt="万度" onerror="this.style.display='none'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="logo-text"&gt;万&lt;span class="dot"&gt;·&lt;/span&gt;度&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item active"&gt;首页&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;新闻&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;贴吧&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;图片&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;视频&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;地图&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;百科&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="nav-item"&gt;网盘&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="nav-right"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;🌐&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span&gt;侦探·未命名&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>3. 搜索区</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="search-section"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="search-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="searchInput" placeholder="万度一下，你就知道" autofocus&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="doSearch()"&gt;搜索&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hot-tags"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="label"&gt;热门：&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag" onclick="hotSearch('万象汇开业')"&gt;万象汇开业&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag" onclick="hotSearch('古镇NPC爆火')"&gt;古镇NPC爆火&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag" onclick="hotSearch('拒绝酒驾专项行动')"&gt;拒绝酒驾&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag" onclick="hotSearch('全国编程大赛')"&gt;编程大赛&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="tag" onclick="hotSearch('老城区道路整改')"&gt;道路整改&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>4. 新闻分类标签</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="news-tabs"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab active"&gt;最新&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;本地&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;热点&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;社会&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;法治&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;教育&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;科技&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;娱乐&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;体育&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;财经&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="tab"&gt;生活&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>5. 主内容三栏</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="main-content"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ====== 左栏 ====== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="col-left"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section-title"&gt;📰 焦点新闻&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 大图轮播 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="carousel-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="slides"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- 图1：车祸新闻配图 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="slide" style="background-image: url('https://picsum.photos/800/350?random=10');"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="overlay" onclick="location.href='page-news1.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="title"&gt;17岁学生放学途中遇祸 醉驾司机致两命悲剧&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="sub"&gt;本地新闻网 · 今日10:23&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- 图2：高考新闻 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="slide" style="background-image: url('https://picsum.photos/800/350?random=11');"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="overlay" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="title"&gt;高考倒计时20天！各地多举措护航1291万考生&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="sub"&gt;教育部官网 · 今日09:30&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- 图3：古镇花经济 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="slide" style="background-image: url('https://picsum.photos/800/350?random=12');"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="overlay" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="title"&gt;春日"花经济"持续升温 古镇赏花路线成网红打卡地&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="sub"&gt;文旅局 · 3天前&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="carousel-dots"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="dot active"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="dot"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="dot"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 常规新闻卡片（填充） --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;一季度GDP同比增长6.8%，新兴制造业贡献突出&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;财经&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;市政府网&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;昨日17:45&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 34&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;工业大模型赋能制造业，批量打造"工业特种兵"&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;科技&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;科技日报&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;4天前&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 67&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;共享电动车新规实施，划定120个规范停放点&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;民生&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;都市报&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;3天前&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 45&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ====== 中栏 ====== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="col-mid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="section-title"&gt;📌 综合新闻&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 网络思潮（线索） --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='page-news2.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;网络不良思潮隐蔽渗透，多地校园强化青少年思想心理引导&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;教育&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;教育周刊&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;4天前&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 210&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 扫黑除恶（线索） --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='page-news3.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;全国常态化扫黑除恶纵深推进，多领域专项整治落地见效&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;法治&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;法治时政&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;4天前&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 402&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 编程大赛（线索） --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='page-news4.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;全国中学生计算机程序设计大赛圆满收官，各地重点中学捷报频传&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;教育&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;教育资讯&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;4天前&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 156&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 娱乐填充 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;顶流明星新剧开机，搭档95后小花，片场路透曝光&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;娱乐&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;娱乐星闻&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;今日09:18&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 1.2k&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;选秀综艺导师互怼冲上热搜，网友：剧本痕迹太重&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;娱乐&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;八卦速递&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;今日11:05&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 856&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;足球联赛落幕，主场获胜带动文旅消费涨17%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;体育&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;体育网&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;3天前&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 89&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="news-card" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="title"&gt;非遗美食南下"熬"出圈，首店排起长队&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="meta"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="tag"&gt;生活&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;美食周刊&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;昨日12:30&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span&gt;评论 203&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- ====== 右栏 ====== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="col-right"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 天气 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="side-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="block-title"&gt;🌤 今日天气&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="display:flex; align-items:center; gap:14px; padding:2px 0;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span style="font-size:28px; font-weight:300; color:#1a2a6c;"&gt;28&lt;span style="font-size:15px;"&gt;°C&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div style="font-size:13px; color:#555;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div&gt;晴间多云&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div style="font-size:12px; color:#999;"&gt;风力3-4级 · 湿度62%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div style="display:flex; gap:6px; margin-top:4px; flex-wrap:wrap;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span style="font-size:11px; color:#888; background:#f0f2f5; padding:0 10px; border-radius:10px;"&gt;🏃 适宜户外&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span style="font-size:11px; color:#888; background:#f0f2f5; padding:0 10px; border-radius:10px;"&gt;😷 良&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span style="font-size:11px; color:#888; background:#f0f2f5; padding:0 10px; border-radius:10px;"&gt;☀ 紫外线中等&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 便民服务 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="side-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="block-title"&gt;📱 生活服务&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="service-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🚌&lt;/span&gt;公交&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🚗&lt;/span&gt;路况&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🏥&lt;/span&gt;挂号&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;📮&lt;/span&gt;快递&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🏦&lt;/span&gt;银行&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🍜&lt;/span&gt;外卖&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🎫&lt;/span&gt;票务&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="svc"&gt;&lt;span class="icon"&gt;🗺&lt;/span&gt;导航&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 24小时热榜 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="side-block"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="block-title"&gt;🔥 24小时热榜&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="rank-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='page-news1.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num top1"&gt;1&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;放学途中车祸 醉驾司机致2死&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="badge"&gt;热&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num top2"&gt;2&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;大型购物中心开业首日破10万人流&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num top3"&gt;3&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;古镇NPC互动爆火短视频平台&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='page-news4.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num"&gt;4&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;全国编程大赛 多所重点中学获奖&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='page-news3.html'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num"&gt;5&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;特大涉黑案二审宣判&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num"&gt;6&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;老城区道路整改提上日程&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num"&gt;7&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;"拒绝酒驾"专项行动全市启动&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="rank-item" onclick="location.href='#'"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="num"&gt;8&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="text"&gt;非遗美食南下首店排长队&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;!-- 广告位（弹性撑满） --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="side-block" style="border:1px dashed #d0d7de; background:#f8f9fa; text-align:center; color:#bbb; font-size:12px; padding:10px; flex:1; display:flex; align-items:center; justify-content:center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>📢 广告位 · 品牌合作</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>6. 滚动快讯</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="ticker-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="ticker-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="label"&gt;快讯&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="track"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='page-news3.html'"&gt;&lt;span class="time"&gt;15:32&lt;/span&gt;警方破获野外流动赌场 抓获60余人&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='page-news1.html'"&gt;&lt;span class="time"&gt;14:10&lt;/span&gt;醉驾司机血检结果公布 超醉驾标准数倍&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;13:45&lt;/span&gt;教育科创新城规划公示&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='page-news4.html'"&gt;&lt;span class="time"&gt;11:20&lt;/span&gt;全国编程大赛 多校选手斩获佳绩&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;10:05&lt;/span&gt;古镇赏花路线成网红打卡地&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;09:30&lt;/span&gt;一季度GDP同比增长6.8%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;08:50&lt;/span&gt;古镇古风NPC互动话题播放量破3亿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;!-- 复制 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='page-news3.html'"&gt;&lt;span class="time"&gt;15:32&lt;/span&gt;警方破获野外流动赌场 抓获60余人&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='page-news1.html'"&gt;&lt;span class="time"&gt;14:10&lt;/span&gt;醉驾司机血检结果公布 超醉驾标准数倍&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;13:45&lt;/span&gt;教育科创新城规划公示&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='page-news4.html'"&gt;&lt;span class="time"&gt;11:20&lt;/span&gt;全国编程大赛 多校选手斩获佳绩&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;10:05&lt;/span&gt;古镇赏花路线成网红打卡地&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;09:30&lt;/span&gt;一季度GDP同比增长6.8%&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="item" onclick="location.href='#'"&gt;&lt;span class="time"&gt;08:50&lt;/span&gt;古镇古风NPC互动话题播放量破3亿&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>7. 底部</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="footer-bottom"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer-links"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;家电品牌转型高端市场 &lt;span class="date"&gt;1周前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;挖野菜成户外社交新宠 专家提醒勿采野生 &lt;span class="date"&gt;1周前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='page-news3.html'"&gt;警方破获野外流动赌场 抓获60余人 &lt;span class="date"&gt;15天前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;老城区道路整改提上日程 学校周边优先 &lt;span class="date"&gt;3天前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;2027年义务教育阶段招生政策发布 &lt;span class="date"&gt;5天前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;古镇"古风NPC互动"五一客流涨58% &lt;span class="date"&gt;6天前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;大型购物中心开业 首日客流破10万 &lt;span class="date"&gt;4天前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="link" onclick="location.href='#'"&gt;"拒绝酒驾"专项行动启动 &lt;span class="date"&gt;2天前&lt;/span&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="copyright"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;关于万度&lt;/a&gt; ｜</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;用户协议&lt;/a&gt; ｜</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;隐私政策&lt;/a&gt; ｜</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;广告合作&lt;/a&gt; ｜</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="#"&gt;帮助中心&lt;/a&gt; ｜</p>
+<p class="p1"><span class="Apple-converted-space">            </span>青ICP备 20230001号 ｜</p>
+<p class="p1"><span class="Apple-converted-space">            </span>©2026 万度网络技术有限公司</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>8. 弹窗（不透露具体日期，只说"昨天"）</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="modal-overlay" id="introModal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="modal-box"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="icon"&gt;📩&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;委托信&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="sub"&gt;发件人：匿名 · 加密渠道&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="letter"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>尊敬的侦探：&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>我的朋友昨天遭遇车祸离世。&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>官方通报称这是一起普通的醉驾事故。&lt;br&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>但种种迹象表明，&lt;strong&gt;事情远没有这么简单&lt;/strong&gt;。&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>恳请您深入调查，还原真相。</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn-start" onclick="closeModal()"&gt;接受委托&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ============================================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>9. JavaScript</p>
+<p class="p1"><span class="Apple-converted-space">    </span>============================================================ --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="script.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function closeModal() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('introModal').style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function doSearch() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var kw = document.getElementById('searchInput').value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!kw) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('请输入搜索关键词');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>window.location.href = 'search.html?q=' + encodeURIComponent(kw);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var input = document.getElementById('searchInput');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.addEventListener('keypress', function(e) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (e.key === 'Enter') doSearch();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">            </span>input.focus();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function hotSearch(word) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('searchInput').value = word;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doSearch();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
