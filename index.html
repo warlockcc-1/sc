@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.2">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.85); -webkit-text-stroke: rgba(255, 255, 255, 0.85)}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.85); -webkit-text-stroke: rgba(255, 255, 255, 0.85); min-height: 18.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="zh-CN"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;万度一下 - 轮回的交叉路口【完整原型】&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft Yahei",-apple-system,BlinkMacSystemFont,sans-serif;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body{background:#fff;color:#333;line-height:1.6;font-size:14px;padding-bottom:40px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.tip-top{font-size:12px;color:#999;text-align:center;margin:8px 0;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 模拟浏览器外壳 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.browser-shell{max-width:1200px;margin:12px auto;border:1px solid #ccc;border-radius:6px;overflow:hidden;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.browser-bar{background:#f1f1f1;padding:6px 10px;display:flex;gap:8px;align-items:center;border-bottom:1px solid #ddd;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.browser-btn{width:12px;height:12px;border-radius:50%;background:#bbb;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.browser-addr{flex:1;background:#fff;border:1px solid #ccc;border-radius:4px;padding:3px 8px;font-size:12px;color:#666;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.browser-content{min-height:720px;padding:20px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 顶部导航 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.top-nav{display:flex;gap:18px;justify-content:flex-end;margin-bottom:24px;font-size:14px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.top-nav a{color:#333;text-decoration:none;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.top-nav a:hover{text-decoration:underline;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 搜索区 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.search-wrap{text-align:center;margin-bottom:30px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.search-input{width:520px;padding:10px 12px;font-size:15px;border:1px solid #aaa;border-radius:2px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.search-buttons{margin-top:12px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button{padding:8px 16px;border:1px solid #bebebe;background:#f8f8f8;border-radius:2px;cursor:pointer;font-size:14px;margin:0 4px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover{background:#f0f0f0;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hot-search{color:#888;font-size:13px;margin-top:10px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 新闻分栏布局 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.news-container{display:grid;grid-template-columns:1fr 1fr 260px;gap:20px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.news-block h4{margin-bottom:8px;font-size:15px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.news-item{margin-bottom:14px;cursor:pointer;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.news-item:hover{text-decoration:underline;color:#0066cc;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.news-meta{font-size:12px;color:#777;margin-top:2px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.news-bottom-gray{margin-top:30px;color:#777;font-size:13px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 弹窗：开局委托 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:999;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-box{background:#fff;padding:24px;width:440px;border-radius:6px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-box h3{margin-bottom:12px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.modal-close{margin-top:16px;text-align:right;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 详情页样式 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.page-detail h2{margin-bottom:10px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.page-meta{color:#777;font-size:13px;margin-bottom:18px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.page-content{margin-bottom:24px;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.back-btn{margin-top:10px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 无结果页 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.no-result{text-align:center;margin-top:60px;color:#666;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* 证据侧边面板 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.evidence-panel{position:fixed;right:10px;top:80px;width:220px;background:#f7f7f7;border:1px solid #ddd;padding:12px;font-size:13px;max-height:500px;overflow:auto;z-index:100;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.evidence-item{margin:6px 0;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hide{display:none !important;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>/* BE结局抖动动画 */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>@keyframes shake {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>0% {transform:translate(1px,1px);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>25% {transform:translate(-1px,-2px);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>50% {transform:translate(-3px,1px);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>75% {transform:translate(2px,-1px);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>100% {transform:translate(1px,2px);}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.shake‑anim{animation:shake 0.12s infinite; color:#990000;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.hidden‑hint{color:#eeeeee;cursor:pointer;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="tip-top"&gt;提示：建议使用普通浏览器窗口游玩，无痕模式可能丢失存档&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;!-- 开局委托弹窗 --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div id="startModal" class="modal-overlay"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="modal-box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;一封匿名委托&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;我的朋友季小月5月18日出车祸离世，新闻报道似乎存在很多疑点，希望你帮我查清真相。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style="margin-top:8px;color:#777;"&gt;没有署名。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="modal-close"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button onclick="closeModal()"&gt;关闭&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- 证据侧边面板 --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="evidence-panel"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h4&gt;📋 已收集证据&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="evidenceList"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="evidence-item"&gt;□ 证据1：确认车祸遇难者真实身份为季小月&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="evidence-item"&gt;□ 证据2：六角星符号归属学生自制模拟悬赏网站&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="evidence-item"&gt;□ 证据3：模拟网站完整内容，悬赏仅为圈内恶作剧&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="evidence-item"&gt;□ 证据4：徐瑾（徐二）参赌负债的身份线索&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="evidence-item"&gt;□ 证据5：徐瑾‑徐大勇亲属关系、升级驾乘意外险线索&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style="margin-top:10px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button onclick="resetGame()" style="width:100%;"&gt;🔄 重置游戏&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div class="browser-shell"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="browser-bar"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="browser-btn"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="browser-btn"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="browser-btn"&gt;&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span class="browser-addr" id="addressBar"&gt;万度搜索：主页&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="browser-content" id="pageContainer"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 万度主页 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page-home"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="top-nav"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:goPage('home')"&gt;首页&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;新闻&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;贴吧&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;图片&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;视频&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;音乐&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;地图&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;百科&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;网盘&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;a href="javascript:void(0)"&gt;更多&lt;/a&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="search-wrap"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;input class="search-input" id="searchInput" placeholder="万度一下，你就知道"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="search-buttons"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button onclick="doSearch()"&gt;万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button onclick="doSearch()"&gt;I Feeling Lucky&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="hot-search"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>#青罗市万象汇开业# &amp;nbsp; #桂溪古镇NPC爆火# &amp;nbsp; #拒绝酒驾专项行动# &amp;nbsp; #楚超联赛青罗主场#</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="news-container"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="news-block"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h4&gt;焦点新闻&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item" onclick="goPage('news‑caraccident')"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>《痛心！17岁少年放学途中遇祸，醉驾司机致两命悲剧》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="news-meta"&gt;本地新闻网｜今日10:23｜浏览12.6万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>《高考进入倒计时！各地多举措护航考生冲刺》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="news-meta"&gt;教育部官网｜今日09:30｜浏览37.8万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>《江洲市一季度GDP同比增长6.8%》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="news-meta"&gt;江州市政府网｜昨日17:45｜浏览8.3万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="news-block"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h4&gt;综合新闻&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item" onclick="goPage('news‑netbad')"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>《网络不良思潮隐蔽渗透，多地校园强化青少年思想心理引导》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="news-meta"&gt;教育周刊｜4天前｜浏览4.3万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item" onclick="goPage('news‑competition')"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>《全国中学生计算机程序设计大赛圆满收官》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="news-meta"&gt;教育资讯｜4天前｜浏览6.7万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>《全国常态化扫黑除恶纵深推进》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="news-meta"&gt;法治时政｜4天前｜浏览6.2万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="news-block"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;h4&gt;娱乐/民生花边&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item"&gt;《某选秀综艺导师互怼冲上热搜》&lt;div class="news-meta"&gt;八卦速递｜今日11:05｜浏览18.9万&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-item"&gt;《单县羊肉汤南下“熬”出圈》&lt;div class="news-meta"&gt;美食周刊｜昨日12:30｜浏览7.4万&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="news-bottom-gray"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="news-item" onclick="goPage('news‑seacase')"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>《临海市警方雷霆出击破获重大野外流动赌场，抓获60余人，核心涉案人员潜逃》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-meta"&gt;临海公安｜15天前｜浏览3.1万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="news-item"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>《老城区道路整改提上日程，学校周边优先施工》</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="news-meta"&gt;民生晚报｜3天前｜浏览4.2万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div style="margin-top:12px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;button onclick="openDomainSpliceModal()"&gt;尝试拼接站点域名&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 车祸新闻详情页 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑news‑caraccident" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;痛心！17岁少年放学途中遇祸，醉驾司机致两命悲剧&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-meta"&gt;来源：本地新闻网｜发布：2026‑05‑19 10:23&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;昨日下午4时许，青罗市胡庆区朝阳路与滨河路交界路段发生一起严重交通事故。一名17岁高二学生骑行自行车回家途中，被一辆失控的小型货运货车猛烈撞击，经医护人员抢救无效当场死亡。肇事司机徐大勇（男，42岁）酒精含量严重超标，车辆失控冲撞护栏，本人也当场殒命。目前警方初步判定为意外交通事故，案件正在进一步调查中。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;&lt;strong&gt;备注：本文为保护当事人隐私，对遇难学生使用化姓。&lt;/strong&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;【图片占位】黑色笔记本，封皮印有六角星标识；被血迹遮挡的学生证，字形“季”极易看成“李”；货车带有福瑞达同城物流有限公司logo。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;————评论区（节选）————&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;网友小卖部张姨：出事之前，我看见一个穿西装的陌生男人，一直在路口来回徘徊。｜点赞7&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 网络不良思潮新闻 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑news‑netbad" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;网络不良思潮隐蔽渗透，多地校园强化青少年思想心理引导&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-meta"&gt;来源：教育周刊｜4天前｜浏览4.3万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;配图QQ群截图，群头像为&lt;strong&gt;六角星符号&lt;/strong&gt;。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;部分不法分子利用贴吧、QQ群，使用加密符号建立圈子壁垒。不法分子以心灵慰藉为幌子向青少年传递消极内容。公安与教育部门开展专项排查。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 信息学竞赛新闻 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑news‑competition" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;全国中学生计算机程序设计大赛圆满收官，各地重点中学捷报频传&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-meta"&gt;来源：教育资讯｜4天前｜浏览6.7万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;青罗市&lt;strong&gt;胡山中学&lt;/strong&gt;表现亮眼，12名选手全部获奖。学校计算机社团、数学竞赛社团为市级优秀社团。该校学生开发的校园安全预警小程序受到教育部门肯定。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;胡山中学坐落于青罗市胡庆区，是省级示范高中，竞赛保送是该校优秀学生升学重要渠道。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;提示：可以尝试搜索关键词：&lt;code&gt;胡山中学&lt;/code&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 临海赌场新闻 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑news‑seacase" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;临海市警方雷霆出击破获重大野外流动赌场，抓获60余人，核心涉案人员潜逃&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-meta"&gt;来源：临海公安｜15天前｜浏览3.1万&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;为深入推进常态化扫黑除恶斗争，临海市公安局经过长期侦查，组织百余名警力开展集中收网行动，捣毁一处盘踞城郊山林的重大野外流动赌场，抓获涉赌人员60余名，现场收缴赌资420余万元，赌具三十余套，查获管制刀具、高利贷借条一批。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;该赌场组织严密，设置庄家、荷官、多层放哨人员，每日变换赌博地点，反侦查意识极强。经查，该据点承接早年已经被打掉的王某特大涉黑组织的部分资金与人脉资源。王某团伙当年以开设地下赌场、暴力放贷起家，造成多人死伤，团伙主犯已经被判处死刑，但依旧有部分赌徒、债务链条遗留于地下。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;该野外流动赌场自2025年10月开始秘密运营，以抽水+高利贷放贷双重方式牟利，借贷日利率高达3%。部分参赌人员背负巨额债务。警方正在深挖全部关联人员，部分核心涉案人员目前仍然在逃。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;警方呼吁群众积极举报赌博、涉黑线索，举报属实给予5000‑100000元奖励，严格保护举报人信息。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;&lt;span class="hidden‑hint" onclick='showPasswordModal("输入访问密钥","输入特殊密钥","%%@#‑X7D9Z",()=&gt;{gameState.triggerBE=true;saveState();goPage("page‑be");})'&gt;%%@#‑X7D9Z&lt;/span&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;提示：解锁后可尝试搜索关键词：&lt;code&gt;徐二&lt;/code&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 胡山中学官网（搜索跳转示例） ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑hushan" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;胡山中学｜校园官网&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;校训：博学笃行 明德致远&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;&lt;strong&gt;校内公告：深切哀悼我校高二学生&lt;/strong&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;我校高二（3）班学生季小月同学，于5月18日遭遇意外不幸离世。学校全体师生对此深感悲痛。学校已开展班级心理疏导工作。望同学们珍重自身安全。（本公告出于保护家属，不在外部新闻公开，仅校内官网发布）&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>//打开本页面自动解锁证据1</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setEvidence(0,true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;计算机社团成立年份【待填充四位数】；社团成员可学习网页开发。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;数学竞赛社团：季小月曾为本社团核心成员，拥有重点大学保送候选资格。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 模拟悬赏网站页面 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑simSite" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;【学生社团内部站点】&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-meta"&gt;粗糙学生自制网页｜左上角六角星logo&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;这是我们社团内部解谜小项目，仅限内部成员游玩，请勿对外传播。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;部分板块需要密码解锁。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button onclick="showPasswordModal('输入板块访问密码','请输入解谜密码','【待填充板块密码】',()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>alert('密码正确，解锁下层谜题');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>setEvidence(1,true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>})"&gt;访问加密谜题板块&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;解开全部谜题之后可以得到寄存柜点位与预留手机号，但缺少取件密码与可取件日期。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索主页&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 主线真相结局页面 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑truthEnd" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;案件复盘：朝阳路与滨河路交叉口的悲剧&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="page-content"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h4&gt;收集到的全部证据汇总：&lt;/h4&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;1. 死者真实身份：胡山中学高二学生，季小月；新闻出于隐私保护使用化姓“李某”、“少年”作为误导。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;2. 黑色笔记本上的六角星标识，来自四名高中生共同搭建的模拟悬赏网站。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;3. 模拟悬赏网站全部资料证实：网站只是学生圈内的解谜恶作剧。陈且歌因保送竞争压力写下加密悬赏任务，但主观完全没有杀人意图；谜题最底层埋藏的，是送给季小月的绝版信息学奥赛真题套册的寄存线索，密码为社团成立纪念日，取件时间设定在高考结束。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;4. 徐瑾（徐二），长期参赌的巨额负债赌徒，偶然访问该模拟网站。网站名称、六角星Logo和覆灭的临海黑组织旧暗网高度相似。徐瑾把少年玩笑当成真实暗杀悬赏；将寄存柜线索错误理解为杀手赏金领取凭证。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;5. 徐瑾是货车司机徐大勇的侄子。徐磊刚刚为父亲购买升级型驾乘意外险。徐瑾下药灌醉大伯徐大勇，并且对车辆动手脚，制造醉酒车祸。徐大勇当场死亡，现场醉驾检测报告、保险记录掩盖了徐瑾的全部痕迹。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;&lt;strong&gt;聊天碎片摘抄（模拟从设备恢复出来的聊天记录）&lt;/strong&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;陈且歌：我写了个恶作剧悬赏在网站最深处，只有小月能完整解完。礼物藏在最后一层，等高考结束她就可以拿到。只是玩笑，别外传。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;姚梦梦：但愿她不要被谜题吓到。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;&lt;br&gt;&lt;em&gt;网络世界的虚构玩笑，不该染指现实的生死。赌博放大人的贪婪与疯狂，它会抓住每一处缝隙，将少年人的游戏，酿成一场交叉路口上无法挽回的悲剧。&lt;/em&gt;&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索主页，可以继续探索彩蛋BE结局&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== BE彩蛋结局页面 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑beEnding" class="page-detail hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="shake‑anim"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h2&gt;⚠警告！检测到本机正在被外部IP访问！&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;页面连接未知外部站点，大量乱码字符……&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;【手机模拟短信弹窗】&lt;br&gt;陌生号码：你挖掘的东西已经太多，我们找到你了。&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;br&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;📂读取存档，返回万度搜索主页（保留进度）&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- ========== 无搜索结果页面 ========== --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="page‑noresult" class="no-result hide"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h2&gt;抱歉，没有找到与 &lt;span id="noresult‑kw"&gt;&lt;/span&gt; 相关的结果。&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p style="margin-top:12px;"&gt;您可以：&lt;br&gt;• 检查输入文字是否有错别字&lt;br&gt;• 使用其他关键词重新搜索&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button class="back-btn" onclick="goPage('home')"&gt;← 返回万度搜索&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">// 存档状态 localStorage</span></p>
+<p class="p1"><span class="s1">let gameState = JSON.parse(localStorage.getItem("crossRoadSave")) || {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalShow:true,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>unlock_hex:false,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>unlock_simSite:false,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>triggerBE:false,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>evidence:[false,false,false,false,false]</span></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 页面路由映射</span></p>
+<p class="p1"><span class="s1">const pageMap = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"home":"page-home",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"news‑caraccident":"page‑news‑caraccident",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"news‑netbad":"page‑news‑netbad",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"news‑competition":"page‑news‑competition",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"news‑seacase":"page‑news‑seacase",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"hushan":"page‑hushan",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"sim‑site":"page‑simSite",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"page‑be":"page‑beEnding",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"ending‑truth":"page‑truthEnd",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"noresult":"page‑noresult"</span></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 搜索关键词路由</span></p>
+<p class="p1"><span class="s1">const searchDict = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"胡山中学":"hushan",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>"线索提示":"home"</span></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 弹窗</span></p>
+<p class="p1"><span class="s1">function closeModal(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("startModal").classList.add("hide");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gameState.modalShow = false;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>saveState();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 页面跳转</span></p>
+<p class="p1"><span class="s1">function goPage(pageKey){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>Object.values(pageMap).forEach(pid=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById(pid).classList.add("hide");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const targetId = pageMap[pageKey];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(targetId){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById(targetId).classList.remove("hide");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("addressBar").innerText = "万度搜索｜" + pageKey;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 执行搜索</span></p>
+<p class="p1"><span class="s1">function doSearch(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const kw = document.getElementById("searchInput").value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(!kw){alert("请输入搜索关键词");return;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>//锁逻辑：没有解锁六角星，搜索徐二无结果</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(kw === "徐二" &amp;&amp; !gameState.unlock_hex){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("noresult‑kw").innerText = kw;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>goPage("noresult");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(searchDict[kw]){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>goPage(searchDict[kw]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}else{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("noresult‑kw").innerText = kw;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>goPage("noresult");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 保存存档</span></p>
+<p class="p1"><span class="s1">function saveState(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>localStorage.setItem("crossRoadSave",JSON.stringify(gameState));</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 重置游戏</span></p>
+<p class="p1"><span class="s1">function resetGame(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(confirm("确认重置？全部进度清空，回到开局。")){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>localStorage.removeItem("crossRoadSave");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>location.reload();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 回车搜索</span></p>
+<p class="p1"><span class="s1">document.getElementById("searchInput").addEventListener("keydown",function(e){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(e.key === "Enter") doSearch();</span></p>
+<p class="p1"><span class="s1">})</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ====================== 【通用密码弹窗组件】 ======================</span></p>
+<p class="p1"><span class="s1">function showPasswordModal(title, hint, correctAns, successCb, failCb) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let modalDiv = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalDiv.id = "pwdModal";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalDiv.style = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalDiv.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style="background:#fff;padding:22px;width:420px;border-radius:6px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3 style="margin-bottom:12px;"&gt;${title}&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input id="pwdInput" type="text" placeholder="${hint}" style="width:100%;padding:9px;border:1px solid #aaa;border-radius:3px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:14px;text-align:right;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="pwdCancel"&gt;取消&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="pwdConfirm"&gt;确认提交&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.body.appendChild(modalDiv);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const inp = document.getElementById("pwdInput");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const cancelBtn = document.getElementById("pwdCancel");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const confirmBtn = document.getElementById("pwdConfirm");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function closePwdModal(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let el = document.getElementById("pwdModal");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if(el) el.remove();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function checkPwd(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let userVal = inp.value.trim().toLowerCase();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let rightVal = correctAns.trim().toLowerCase();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if(userVal === rightVal){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>closePwdModal();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if(typeof successCb === "function") successCb();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}else{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if(typeof failCb === "function"){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>failCb();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}else{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>alert("输入错误，请重新核对线索！");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>confirmBtn.onclick = checkPwd;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>cancelBtn.onclick = closePwdModal;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inp.addEventListener("keydown",e=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if(e.key === "Enter") checkPwd();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>inp.focus();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ======================【域名拼接解谜模块】 ======================</span></p>
+<p class="p1"><span class="s1">const domainPuzzleConfig = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>partA:"", <span class="Apple-converted-space">  </span>//来自临海赌场新闻旧暗网代号片段【待填充】</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>partB:"", <span class="Apple-converted-space">  </span>//来自桂溪古镇NPC新闻特殊字符【待填充】</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>partC:"", <span class="Apple-converted-space">  </span>//胡山中学计算机社团成立四位数年份字符串【待填充】</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>fullDomain:"" //拼接之后完整域名【待填充】</span></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function openDomainSpliceModal(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let modalDiv = document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalDiv.id = "domainSpliceModal";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalDiv.style = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;display:flex;align-items:center;justify-content:center;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>modalDiv.innerHTML = `</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style="background:#fff;padding:24px;width:480px;border-radius:6px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h3&gt;拼接站点域名&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p style="font-size:13px;color:#555;margin:8px 0;"&gt;根据收集到的3段线索碎片，分别填入下方输入框，组合出完整站点域名&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin:10px 0;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label&gt;碎片一：&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input id="dPartA" type="text" style="width:100%;padding:8px;margin-top:4px;border:1px solid #aaa;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin:10px 0;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label&gt;碎片二：&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input id="dPartB" type="text" style="width:100%;padding:8px;margin-top:4px;border:1px solid #aaa;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin:10px 0;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;label&gt;碎片三：&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input id="dPartC" type="text" style="width:100%;padding:8px;margin-top:4px;border:1px solid #aaa;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div style="margin-top:16px;text-align:right;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="domainCancel"&gt;取消&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="domainSubmit"&gt;拼接并访问站点&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.body.appendChild(modalDiv);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function closeDomainModal(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let el = document.getElementById("domainSpliceModal");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if(el) el.remove();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>function checkDomainSplice(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let a = document.getElementById("dPartA").value.trim().toLowerCase();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let b = document.getElementById("dPartB").value.trim().toLowerCase();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let c = document.getElementById("dPartC").value.trim().toLowerCase();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const userCombine = a + b + c;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const rightCombine = (domainPuzzleConfig.partA + domainPuzzleConfig.partB + domainPuzzleConfig.partC).toLowerCase();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if(userCombine === rightCombine){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>closeDomainModal();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>alert("域名拼接成功，正在进入学生模拟悬赏网站……");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gameState.unlock_simSite = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>gameState.unlock_hex = true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>saveState();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>goPage("sim‑site");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}else{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>alert("拼接结果不正确，请回头重新核对新闻内的线索碎片！");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("domainCancel").onclick = closeDomainModal;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("domainSubmit").onclick = checkDomainSplice;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ======================【证据勾选更新工具函数】 ======================</span></p>
+<p class="p1"><span class="s1">function setEvidence(index,bool){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(!gameState.evidence) gameState.evidence = [false,false,false,false,false];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>gameState.evidence[index] = bool;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>saveState();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>refreshEvidenceUI();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const allOk = gameState.evidence.every(item=&gt;item===true);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(allOk){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>setTimeout(()=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>alert("已经集齐全部证据，即将揭开案件真相。");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>goPage("ending‑truth");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>},600)</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function refreshEvidenceUI(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const listDom = document.getElementById("evidenceList");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const evList = gameState.evidence || [false,false,false,false,false];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const evText = [</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"证据1：确认车祸遇难者真实身份为季小月",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"证据2：六角星符号归属学生自制模拟悬赏网站",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"证据3：模拟网站完整内容，悬赏仅为圈内恶作剧",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"证据4：徐瑾（徐二）参赌负债的身份线索",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>"证据5：徐瑾‑徐大勇亲属关系、升级驾乘意外险线索"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>let html = "";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>evList.forEach((ok,i)=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>html += `&lt;div class="evidence-item"&gt;${ok ? "☑" : "□"} ${evText[i]}&lt;/div&gt;`</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>listDom.innerHTML = html;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 初始化刷新证据显示</span></p>
+<p class="p1"><span class="s1">refreshEvidenceUI();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// 初始化弹窗状态</span></p>
+<p class="p1"><span class="s1">if(!gameState.modalShow){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById("startModal").classList.add("hide");</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
